@@ -11,6 +11,11 @@ class Order extends React.Component {
     const fish = this.props.fishes[key];
     const count = this.props.order[key];
     const isAvailable = fish && fish.status === "available";
+    const transitionOptions = {
+      classNames: "order",
+      key,
+      timeout: { enter: 250, exit: 250 },
+    };
 
     //make sure the fish is loaded before we continue
     if (!fish) {
@@ -18,11 +23,7 @@ class Order extends React.Component {
     }
     if (!isAvailable) {
       return (
-        <CSSTransition
-          classNames="order"
-          key={key}
-          timeout={{ enter: 5000, exit: 5000 }}
-        >
+        <CSSTransition {...transitionOptions}>
           <li key={key}>
             Sorry {fish ? fish.name : "fish"} is no longer available
           </li>
@@ -30,18 +31,14 @@ class Order extends React.Component {
       );
     }
     return (
-      <CSSTransition
-        classNames="order"
-        key={key}
-        timeout={{ enter: 250, exit: 250 }}
-      >
+      <CSSTransition {...transitionOptions}>
         <li key={key}>
           <span>
             <TransitionGroup component="span" className="count">
               <CSSTransition
                 classNames="count"
                 key={count}
-                timeout={{ enter: 250, exit: 250 }}
+                timeout={{ enter: 500, exit: 500 }}
               >
                 <span>{count}</span>
               </CSSTransition>
