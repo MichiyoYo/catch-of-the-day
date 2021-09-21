@@ -4,6 +4,7 @@ import Order from "./Order";
 import Inventory from "./Inventory";
 import fishes from "../sample-fishes";
 import Fish from "./Fish";
+import base from "../base";
 
 class App extends React.Component {
   /*initial state can be set in the constructor or using a 
@@ -12,6 +13,22 @@ class App extends React.Component {
     fishes: {},
     order: {},
   };
+
+  // start lifecycle methods
+  componentDidMount() {
+    const { params } = this.props.match;
+    this.ref = base.syncState(`${params.storeId}/fishes`, {
+      context: this,
+      state: "fishes",
+    });
+  }
+
+  //to avoid memory leakes for mounting a ton of apps without unmounting them
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
+  }
+
+  //end lifecycle methods
 
   addFish = (fish) => {
     //to update state:
