@@ -1,5 +1,3 @@
-<img src="https://i.ibb.co/mS9L0fr/catch-of-the-day-screenshot.png" alt="Catch of The Day app screenshot">
-
 # Overview
 
 Catch Of The Day is a React application to manage one or multiple virtual seafood markets.
@@ -20,3 +18,7 @@ To run the app in development mode:
 To run the app in production mode:
 
 `npm run start`
+
+## Screenshots
+
+<img src="https://i.ibb.co/mS9L0fr/catch-of-the-day-screenshot.png" alt="Catch of The Day app screenshot">
