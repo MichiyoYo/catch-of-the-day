@@ -19,6 +19,14 @@ class Inventory extends React.Component {
     owner: null,
   };
 
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.authHandler({ user });
+      }
+    });
+  }
+
   authHandler = async (authData) => {
     //look up the current store in the firebase database
     const store = await base.fetch(this.props.storeId, { constex: this });
@@ -61,7 +69,7 @@ class Inventory extends React.Component {
     if (this.state.uid !== this.state.owner) {
       return (
         <div>
-          Sorry you are not the owner
+          <p>Sorry you are not the owner</p>
           {logout}
         </div>
       );
