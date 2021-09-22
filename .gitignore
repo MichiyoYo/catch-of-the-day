@@ -6,3 +6,6 @@ notes.md
 catch-of-the-day/build/
 
 .vercel
+
+# Local Netlify folder
+.netlify
