@@ -18,7 +18,3 @@ To run the app in development mode:
 To run the app in production mode:
 
 `npm run start`
-
-## Screenshots
-
-<img src="https://i.ibb.co/mS9L0fr/catch-of-the-day-screenshot.png" alt="Catch of The Day app screenshot">
